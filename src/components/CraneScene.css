@@ -1,0 +1,149 @@
+/* ── Crane Scene Container ──────────────────────────────── */
+.crane-scene {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: scene-fade-in 2.5s cubic-bezier(0.16, 1, 0.3, 1) 5.5s forwards;
+}
+
+@keyframes scene-fade-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Tree ambient animation ─────────────────────────────── */
+.tree-trunk {
+  animation: tree-sway 12s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+
+@keyframes tree-sway {
+  from { transform: skewX(-0.3deg); }
+  to   { transform: skewX(0.4deg); }
+}
+
+/* ── Crane wandering animation ──────────────────────────── */
+.crane {
+  animation: crane-wander 18s ease-in-out infinite;
+  transform-origin: 300px 340px;
+}
+
+@keyframes crane-wander {
+  0%   { transform: translateX(0)    translateY(0);    }
+  15%  { transform: translateX(-18px) translateY(3px);  }
+  30%  { transform: translateX(-8px)  translateY(0);    }
+  45%  { transform: translateX(12px)  translateY(-2px); }
+  60%  { transform: translateX(22px)  translateY(4px);  }
+  75%  { transform: translateX(10px)  translateY(2px);  }
+  90%  { transform: translateX(-6px)  translateY(0);    }
+  100% { transform: translateX(0)    translateY(0);    }
+}
+
+/* Crane body breathing */
+.crane__body {
+  animation: crane-breathe 4s ease-in-out infinite;
+}
+
+@keyframes crane-breathe {
+  0%, 100% { transform: scaleY(1);    }
+  50%       { transform: scaleY(1.04); }
+}
+
+/* Head tilt */
+.crane__head,
+.crane__crown,
+.crane__beak {
+  animation: crane-head-look 10s ease-in-out infinite;
+  transform-origin: 308px 228px;
+}
+
+@keyframes crane-head-look {
+  0%   { transform: rotate(0deg);   }
+  20%  { transform: rotate(-4deg);  }
+  40%  { transform: rotate(2deg);   }
+  65%  { transform: rotate(-6deg);  }
+  80%  { transform: rotate(3deg);   }
+  100% { transform: rotate(0deg);   }
+}
+
+/* Neck follows head */
+.crane__neck {
+  animation: crane-neck-sway 10s ease-in-out infinite;
+  transform-origin: 312px 280px;
+}
+
+@keyframes crane-neck-sway {
+  0%   { transform: rotate(0deg);   }
+  20%  { transform: rotate(-2.5deg); }
+  40%  { transform: rotate(1.5deg);  }
+  65%  { transform: rotate(-4deg);   }
+  80%  { transform: rotate(2deg);    }
+  100% { transform: rotate(0deg);   }
+}
+
+/* Right leg — slow walk step */
+.crane__leg-r {
+  animation: leg-step-r 6s ease-in-out infinite;
+  transform-origin: 308px 316px;
+}
+
+@keyframes leg-step-r {
+  0%, 100% { transform: rotate(0deg);  }
+  25%       { transform: rotate(5deg);  }
+  50%       { transform: rotate(0deg);  }
+  75%       { transform: rotate(-3deg); }
+}
+
+/* Left leg — offset step */
+.crane__leg-l {
+  animation: leg-step-l 6s ease-in-out infinite;
+  transform-origin: 294px 316px;
+  animation-delay: -3s;
+}
+
+@keyframes leg-step-l {
+  0%, 100% { transform: rotate(0deg);  }
+  25%       { transform: rotate(-4deg); }
+  50%       { transform: rotate(0deg);  }
+  75%       { transform: rotate(4deg);  }
+}
+
+/* Wing subtle flutter */
+.crane__wing-r {
+  animation: wing-flutter 8s ease-in-out infinite;
+  transform-origin: 310px 290px;
+}
+.crane__wing-l {
+  animation: wing-flutter 8s ease-in-out infinite;
+  transform-origin: 292px 290px;
+  animation-direction: reverse;
+}
+
+@keyframes wing-flutter {
+  0%, 100% { transform: translateY(0);  }
+  50%       { transform: translateY(2px); }
+}
+
+/* Tail subtle sway */
+.crane__tail {
+  animation: tail-sway 7s ease-in-out infinite;
+  transform-origin: 265px 295px;
+}
+
+@keyframes tail-sway {
+  0%, 100% { transform: rotate(0deg);  }
+  40%       { transform: rotate(3deg);  }
+  70%       { transform: rotate(-2deg); }
+}
+
+/* Shadow follows body wander */
+.crane__shadow {
+  animation: shadow-shift 18s ease-in-out infinite;
+}
+
+@keyframes shadow-shift {
+  0%   { transform: translateX(0); opacity: 0.08; }
+  30%  { transform: translateX(-18px); }
+  60%  { transform: translateX(22px); }
+  100% { transform: translateX(0); opacity: 0.08; }
+}

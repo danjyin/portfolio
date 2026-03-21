@@ -1,0 +1,66 @@
+/* ── Root Variables ─────────────────────────────────────── */
+:root {
+  --ivory:        #FAF7F0;
+  --warm-white:   #F5F0E8;
+  --parchment:    #EDE8DC;
+  --pale-gray:    #D8D2C8;
+  --stone:        #B8B0A0;
+  --mist:         #C8C4BC;
+  --ink:          #1A1710;
+  --ink-soft:     #2C2920;
+  --gold:         #C8A96E;
+  --gold-light:   #DFC090;
+  --gold-faint:   rgba(200, 169, 110, 0.18);
+  --cloud-white:  rgba(250, 247, 240, 0.82);
+  --shadow-soft:  rgba(26, 23, 16, 0.08);
+  --shadow-mid:   rgba(26, 23, 16, 0.16);
+
+  --font-serif:   'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-display: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-chinese: 'Noto Serif SC', 'Cormorant Garamond', serif;
+
+  --ease-silk:    cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-emerge:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--warm-white); }
+::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 2px; }
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+  background: var(--gold-faint);
+  color: var(--ink);
+}
+
+/* ── Utility ────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}

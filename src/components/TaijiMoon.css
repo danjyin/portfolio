@@ -1,0 +1,167 @@
+/* ── Taiji / Moon Container ─────────────────────────────── */
+.taiji-wrap {
+  position: relative;
+  width: clamp(300px, 42vw, 420px);
+  height: clamp(300px, 42vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Atmospheric Halo ───────────────────────────────────── */
+.taiji-halo {
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(250, 245, 230, 0.55) 0%,
+    rgba(220, 210, 185, 0.22) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transition: opacity 1.2s var(--ease-silk);
+}
+
+/* ── SVG ────────────────────────────────────────────────── */
+.taiji-svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: drop-shadow(0 8px 32px rgba(26,23,16,0.18)) drop-shadow(0 2px 8px rgba(26,23,16,0.10));
+  transition: filter 1s var(--ease-silk);
+}
+
+/* ── Elements inside SVG ────────────────────────────────── */
+
+/* Dark background — hidden until transform */
+.taiji__dark-bg {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Yang (white) half — always visible (looks like full moon when mask is on top) */
+.taiji__yang-half {
+  transition: fill 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Small dots — hidden until transform */
+.taiji__yin-dot,
+.taiji__yang-dot {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.3s;
+}
+
+/* Gold ring — hidden until settled */
+.taiji__ring {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-silk);
+  transition-delay: 0.8s;
+}
+
+/* Moon mask — the ivory overlay that fades out during transform */
+.taiji__moon-mask {
+  opacity: 1;
+  transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Moon surface craters */
+.taiji__moon-crater {
+  transition: opacity 1s var(--ease-silk);
+}
+
+/* ── Spin Phase ─────────────────────────────────────────── */
+.taiji-wrap--spin .taiji-svg {
+  animation: taiji-spin 2.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+}
+
+@keyframes taiji-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(720deg); }
+}
+
+/* ── Transform Phase ────────────────────────────────────── */
+.taiji-wrap--transform .taiji__dark-bg {
+  opacity: 1;
+}
+
+.taiji-wrap--transform .taiji__yin-dot,
+.taiji-wrap--transform .taiji__yang-dot {
+  opacity: 1;
+}
+
+.taiji-wrap--transform .taiji__moon-mask {
+  opacity: 0;
+}
+
+.taiji-wrap--transform .taiji__moon-crater {
+  opacity: 0;
+}
+
+/* ── Settled Phase ──────────────────────────────────────── */
+.taiji-wrap--settled .taiji__ring {
+  opacity: 1;
+}
+
+.taiji-wrap--settled .taiji-svg {
+  animation: taiji-breathe 8s ease-in-out infinite;
+  filter: drop-shadow(0 10px 40px rgba(26,23,16,0.20)) drop-shadow(0 2px 8px rgba(200,169,110,0.10));
+}
+
+.taiji-wrap--settled .taiji-halo {
+  animation: halo-pulse 6s ease-in-out infinite;
+}
+
+@keyframes taiji-breathe {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50%       { transform: rotate(0.8deg) scale(1.008); }
+}
+
+@keyframes halo-pulse {
+  0%, 100% { opacity: 0.75; }
+  50%       { opacity: 1.0; }
+}
+
+/* ── Gold Particles ─────────────────────────────────────── */
+.taiji-particles {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-silk);
+}
+
+.taiji-wrap--settled .taiji-particles {
+  opacity: 0.6;
+}
+
+.taiji-particle {
+  animation: particle-orbit 10s ease-in-out infinite alternate;
+  fill: var(--gold-light);
+}
+
+@keyframes particle-orbit {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to   { opacity: 0.8; transform: scale(1.4); }
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .taiji-wrap {
+    width: clamp(220px, 50vw, 320px);
+    height: clamp(220px, 50vw, 320px);
+  }
+}
+
+@media (max-width: 600px) {
+  .taiji-wrap {
+    width: clamp(180px, 62vw, 260px);
+    height: clamp(180px, 62vw, 260px);
+  }
+}

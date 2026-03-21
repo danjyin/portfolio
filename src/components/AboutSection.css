@@ -1,0 +1,205 @@
+/* ── About Section ──────────────────────────────────────── */
+.about-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--warm-white) 0%, var(--ivory) 100%);
+  padding: 0 0 100px;
+  overflow: hidden;
+}
+
+/* Cloud transition from hero */
+.section-clouds {
+  position: relative;
+  height: 80px;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+.section-clouds svg {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Subtle cloud patterns in background */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -5%;
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(ellipse at center, rgba(215,205,190,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section Inner ──────────────────────────────────────── */
+.section-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 40px 0;
+}
+
+/* ── Section Marker ─────────────────────────────────────── */
+.section-marker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.section-marker__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pale-gray), transparent);
+}
+
+.section-marker__text {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  white-space: nowrap;
+}
+
+/* ── About Grid ─────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 40px;
+  margin-bottom: 72px;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.about-chapter {
+  font-family: var(--font-chinese);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--stone);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.about-vertical-rule {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(180deg, var(--pale-gray), transparent);
+}
+
+.about-text {
+  padding-top: 4px;
+}
+
+.about-intro {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+
+.about-para {
+  font-family: var(--font-serif);
+  font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Trait Cards ────────────────────────────────────────── */
+.trait-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.trait-card {
+  background: rgba(250, 247, 240, 0.7);
+  border: 1px solid rgba(200, 192, 178, 0.35);
+  border-radius: 2px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform 0.4s var(--ease-silk), box-shadow 0.4s var(--ease-silk);
+  backdrop-filter: blur(4px);
+}
+
+.trait-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-soft);
+}
+
+.trait-glyph {
+  display: block;
+  font-family: var(--font-chinese);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.trait-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.trait-desc {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--stone);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Ink Divider ────────────────────────────────────────── */
+.ink-divider {
+  display: flex;
+  justify-content: center;
+  opacity: 0.6;
+}
+.ink-divider svg {
+  width: min(400px, 90%);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .trait-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-left { flex-direction: row; }
+  .about-vertical-rule { display: none; }
+  .section-inner { padding: 40px 24px 0; }
+}
+
+@media (max-width: 440px) {
+  .trait-grid { grid-template-columns: 1fr; }
+}
