@@ -12,17 +12,15 @@ import './TaijiMoon.css'
 */
 
 export default function TaijiMoon({ phase }) {
-  const isMoonSpin  = phase === PHASE.MOON_SPIN
-  const isTransform = phase === PHASE.TRANSFORM || phase === PHASE.CLOUDS_OUT || phase === PHASE.NAV_FORM
-  const isSettled   = phase === PHASE.NAMES_APPEAR || phase === PHASE.COMPLETE
+  const isTaiji   = phase === PHASE.TAIJI_SHOW
+  const isSettled = phase === PHASE.NAMES_APPEAR || phase === PHASE.COMPLETE
 
   return (
     <div
       className={[
         'taiji-wrap',
-        isMoonSpin  ? 'taiji-wrap--spin'    : '',
-        isTransform ? 'taiji-wrap--transform' : '',
-        isSettled   ? 'taiji-wrap--settled'  : '',
+        isTaiji   ? 'taiji-wrap--taiji'   : '',
+        isSettled ? 'taiji-wrap--settled' : '',
       ].join(' ')}
     >
       {/* Atmospheric halo */}

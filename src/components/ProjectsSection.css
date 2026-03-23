@@ -147,7 +147,7 @@
 
 .project-card__subtitle {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: 0.93rem;
   font-style: italic;
   color: var(--stone);
   margin-bottom: 20px;
@@ -156,9 +156,9 @@
 /* Description */
 .project-card__desc {
   font-family: var(--font-serif);
-  font-size: clamp(0.88rem, 1.2vw, 0.96rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
   color: var(--ink-soft);
-  line-height: 1.85;
+  line-height: 1.9;
   margin-bottom: 22px;
 }
 
@@ -172,7 +172,7 @@
 
 .project-tag {
   font-family: var(--font-serif);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.10em;
   color: var(--stone);
   border: 1px solid rgba(185,175,160,0.45);

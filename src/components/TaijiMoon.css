@@ -72,31 +72,21 @@
   transition: opacity 1s var(--ease-silk);
 }
 
-/* ── Spin Phase ─────────────────────────────────────────── */
-.taiji-wrap--spin .taiji-svg {
-  animation: taiji-spin 2.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-}
-
-@keyframes taiji-spin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(720deg); }
-}
-
-/* ── Transform Phase ────────────────────────────────────── */
-.taiji-wrap--transform .taiji__dark-bg {
+/* ── Taiji Phase (starts here) ──────────────────────────── */
+.taiji-wrap--taiji .taiji__dark-bg {
   opacity: 1;
 }
 
-.taiji-wrap--transform .taiji__yin-dot,
-.taiji-wrap--transform .taiji__yang-dot {
+.taiji-wrap--taiji .taiji__yin-dot,
+.taiji-wrap--taiji .taiji__yang-dot {
   opacity: 1;
 }
 
-.taiji-wrap--transform .taiji__moon-mask {
+.taiji-wrap--taiji .taiji__moon-mask {
   opacity: 0;
 }
 
-.taiji-wrap--transform .taiji__moon-crater {
+.taiji-wrap--taiji .taiji__moon-crater {
   opacity: 0;
 }
 

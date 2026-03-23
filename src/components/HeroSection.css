@@ -88,10 +88,10 @@
 /* Given name — Danjing */
 .name-given {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
   font-weight: 300;
   color: var(--ink-soft);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   line-height: 1;
 }
 
@@ -238,12 +238,12 @@
 
 /* ── Crane Area ─────────────────────────────────────────── */
 .hero__crane-area {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: clamp(380px, 50vw, 640px);
   height: clamp(300px, 46vh, 520px);
-  z-index: 8;
+  z-index: 20;
   pointer-events: none;
 }
 
@@ -252,7 +252,7 @@
   .hero__name--left  { right: calc(50% + 175px); }
   .hero__name--right { left:  calc(50% + 175px); }
   .name-surname { font-size: clamp(2rem, 6vw, 3rem); }
-  .name-given   { font-size: clamp(1.1rem, 4vw, 1.8rem); }
+  .name-given   { font-size: clamp(2rem, 6vw, 3rem); }
 }
 
 @media (max-width: 600px) {

@@ -1,8 +1,8 @@
-#  Portfolio
+# Portfolio
 
 Personal portfolio website built with React and Vite.
 
-Features an animated moon-to-taiji opening sequence with ink-wash aesthetics.
+Features an animated taiji-to-moon opening sequence with ink-wash aesthetics.
 
 ## Tech Stack
 

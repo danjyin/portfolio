@@ -66,7 +66,7 @@
 /* ── Invitation ─────────────────────────────────────────── */
 .contact-invitation {
   font-family: var(--font-serif);
-  font-size: clamp(1.0rem, 1.6vw, 1.2rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
   font-style: italic;
   color: var(--ink-soft);
   line-height: 1.85;
@@ -135,7 +135,7 @@
 
 .contact-link__value {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   color: var(--ink-soft);
   overflow: hidden;
   text-overflow: ellipsis;

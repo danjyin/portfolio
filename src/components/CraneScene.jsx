@@ -210,16 +210,40 @@ export default function CraneScene() {
         <path d="M242,224 C246,212 252,202 260,196" fill="none" stroke="#3C3830" strokeWidth="1.5" strokeLinecap="round"/>
       </g>
 
-      {/* ── Ink dots / leaf clusters ─────────────────────── */}
-      <g opacity="0.22" filter="url(#soft-blur)">
-        {/* Leaf mass clusters — soft ink dots */}
+      {/* ── Green leaf clusters ──────────────────────────── */}
+      <g filter="url(#soft-blur)">
         {[
-          [40,42,18], [58,10,12], [80,18,10], [36,24,8],
-          [74,40,15], [86,20,10], [168,197,12], [150,142,10],
-          [158,96,10], [170,100,8], [178,74,8],
-        ].map(([cx,cy,r],i) => (
-          <ellipse key={i} cx={cx} cy={cy} rx={r} ry={r*0.85}
-            fill="#2C2920" opacity={0.4 + (i%3)*0.1}/>
+          [40,42,20,'#5a7a3e',0.75], [58,10,15,'#4a6e32',0.70], [80,18,12,'#6b8a4e',0.65],
+          [36,24,10,'#3d5e2a',0.72], [74,40,17,'#527040',0.68], [86,20,12,'#4e7238',0.60],
+          [54,30,14,'#5a7a3e',0.65], [42,52,10,'#6b8a4e',0.55],
+          [168,197,14,'#5a7a3e',0.62], [150,142,12,'#4a6e32',0.58],
+          [158,96,12,'#527040',0.60], [170,100,10,'#3d5e2a',0.55], [178,74,10,'#6b8a4e',0.52],
+          [162,72,8,'#4e7238',0.50], [110,220,8,'#5a7a3e',0.45],
+        ].map(([cx,cy,r,fill,op],i) => (
+          <ellipse key={i} cx={cx} cy={cy} rx={r} ry={r*0.75}
+            fill={fill} opacity={op}/>
+        ))}
+      </g>
+
+      {/* ── Falling leaves ───────────────────────────────── */}
+      <g>
+        {[
+          { cx: 54, cy: 25, color: '#5a7a3e', cls: 'leaf-1', delay: '0s' },
+          { cx: 78, cy: 18, color: '#4a6e32', cls: 'leaf-2', delay: '3s' },
+          { cx: 42, cy: 38, color: '#6b8a4e', cls: 'leaf-3', delay: '6s' },
+          { cx: 66, cy: 30, color: '#527040', cls: 'leaf-1', delay: '9s' },
+          { cx: 50, cy: 15, color: '#3d5e2a', cls: 'leaf-2', delay: '12s' },
+          { cx: 86, cy: 22, color: '#5a7a3e', cls: 'leaf-3', delay: '4.5s' },
+        ].map((leaf, i) => (
+          <ellipse
+            key={i}
+            cx={leaf.cx} cy={leaf.cy}
+            rx="5" ry="8"
+            fill={leaf.color}
+            className={`falling-leaf ${leaf.cls}`}
+            style={{ animationDelay: leaf.delay }}
+            opacity="0"
+          />
         ))}
       </g>
 
